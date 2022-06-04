@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">Workout_Log</string>
+    <string name="enter_sign_up_email">Enter Email</string>
+    <string name="enter_sign_up_password">Enter Password</string>
+    <string name="log_in">LOG IN</string>
+    <string name="sign_up_button">SIGN UP</string>
+    <string name="emailP_required">Email is required</string>
+    <string name="Sign_Up_password_required">Password is required</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_second_name">Enter Second Name</string>
     <string name="enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
-    <string name="log_in">LOG IN</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="first_name">First name is required</string>
+    <string name="last_name">Last name is required</string>
     <string name="email_required">Email is required</string>
     <string name="password_required">Password is required</string>
+    <string name="ConfirmP_required">Password is required</string>
 </resources>

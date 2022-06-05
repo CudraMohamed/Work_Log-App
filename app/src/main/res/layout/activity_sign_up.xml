@@ -132,12 +132,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgFirstPerson"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
+        android:background="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="@+id/tilFirstName"
         app:layout_constraintEnd_toStartOf="@+id/tilFirstName"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,11 +147,12 @@
         app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgEmail"
         android:layout_width="34dp"
         android:layout_height="29dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
+        android:background="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="@+id/tilSignUpEmail"
         app:layout_constraintEnd_toStartOf="@+id/tilSignUpEmail"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,15 +160,45 @@
         app:srcCompat="@drawable/ic_baseline_mail_24" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgPassword"
         android:layout_width="31dp"
         android:layout_height="34dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
+        android:background="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="@+id/tilSignUpPassword"
         app:layout_constraintEnd_toStartOf="@+id/tilSignUpPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tilSignUpPassword"
         app:layout_constraintVertical_bias="0.56"
+        app:srcCompat="@drawable/ic_baseline_password_24" />
+
+    <ImageView
+        android:id="@+id/imgSecondPerson"
+        android:layout_width="33dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="@+id/tilLastName"
+        app:layout_constraintEnd_toStartOf="@+id/tilLastName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tilLastName"
+        app:srcCompat="@drawable/ic_baseline_person_24"
+        tools:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <ImageView
+        android:id="@+id/imgConfirmPassword"
+        android:layout_width="31dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="false"
+        android:background="#FFEB3B"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tilSignUpConfirm"
+        app:layout_constraintEnd_toStartOf="@+id/tilSignUpConfirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tilSignUpConfirm"
         app:srcCompat="@drawable/ic_baseline_password_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

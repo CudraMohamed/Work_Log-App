@@ -19,4 +19,9 @@
     <string name="email_required">Email is required</string>
     <string name="password_required">Password is required</string>
     <string name="ConfirmP_required">Password is required</string>
+    <string name="password_short">Password is too short</string>
+    <string name="password_long">Password is too long</string>
+    <string name="confirming_passwords">Password does not match</string>
+    <string name="confirmp_short">Password is too short</string>
+    <string name="confirmp_long">Password is too long</string>
 </resources>

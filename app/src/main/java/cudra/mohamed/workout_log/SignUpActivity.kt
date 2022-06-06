@@ -78,14 +78,23 @@ class SignUpActivity : AppCompatActivity() {
         if (signupPassword.isBlank()){
             tilSignUpPassword.error = getString(R.string.password_required)
         }
+        if (signupPassword.length<8){
+            tilSignUpPassword.error = getString(R.string.password_short)
+        }
+        if (signupPassword.length>16){
+            tilSignUpPassword.error = getString(R.string.password_long)
+        }
         if (signUpConfirmP.isBlank()){
             tilSignUpConfirm.error = getString(R.string.ConfirmP_required)
         }
-        if (signUpConfirmP==signupPassword){
-            return
+        if (signUpConfirmP!=signupPassword){
+            tilSignUpConfirm.error = getString(R.string.confirming_passwords)
         }
-        else{
-            tilSignUpConfirm.error = "Password does not match"
+        else if (signUpConfirmP.length<8){
+            tilSignUpConfirm.error = getString(R.string.confirmp_short)
+        }
+        else if (signUpConfirmP.length>16){
+            tilSignUpConfirm.error = getString(R.string.confirmp_long)
         }
     }
 }

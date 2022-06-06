@@ -46,5 +46,11 @@ class LogInActivity : AppCompatActivity() {
         if (password.isBlank()){
             tilPassword.error = getString(R.string.password_required)
         }
+        else if (password.length<8){
+            tilPassword.error = getString(R.string.login_password_short)
+        }
+        else if (password.length>16){
+            tilPassword.error = getString(R.string.login_password_long)
+        }
     }
 }

@@ -24,4 +24,6 @@
     <string name="confirming_passwords">Password does not match</string>
     <string name="confirmp_short">Password is too short</string>
     <string name="confirmp_long">Password is too long</string>
+    <string name="login_password_short">Password is too short</string>
+    <string name="login_password_long">Password is too long</string>
 </resources>

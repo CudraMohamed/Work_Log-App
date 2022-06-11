@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/plan"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="@string/plan_bnv"/>
+    <item
+        android:id="@+id/track"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_auto_graph_24"
+        android:title="@string/track_bnv"/>
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/profile_bnv" />
+</menu>

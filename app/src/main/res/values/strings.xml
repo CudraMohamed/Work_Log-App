@@ -26,4 +26,7 @@
     <string name="confirmp_long">Password is too long</string>
     <string name="login_password_short">Password is too short</string>
     <string name="login_password_long">Password is too long</string>
+    <string name="plan_bnv">Plan</string>
+    <string name="track_bnv">Track</string>
+    <string name="profile_bnv">Profile</string>
 </resources>

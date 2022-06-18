@@ -139,7 +139,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
-        android:background="#FFEB3B"
+
         app:layout_constraintBottom_toBottomOf="@+id/tilFirstName"
         app:layout_constraintEnd_toStartOf="@+id/tilFirstName"
         app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +152,7 @@
         android:layout_height="29dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
-        android:background="#FFEB3B"
+
         app:layout_constraintBottom_toBottomOf="@+id/tilSignUpEmail"
         app:layout_constraintEnd_toStartOf="@+id/tilSignUpEmail"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +165,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
-        android:background="#FFEB3B"
+
         app:layout_constraintBottom_toBottomOf="@+id/tilSignUpPassword"
         app:layout_constraintEnd_toStartOf="@+id/tilSignUpPassword"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +179,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
-        android:background="#FFEB3B"
+
         app:layout_constraintBottom_toBottomOf="@+id/tilLastName"
         app:layout_constraintEnd_toStartOf="@+id/tilLastName"
         app:layout_constraintStart_toStartOf="parent"
@@ -194,7 +194,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="8dp"
         android:adjustViewBounds="false"
-        android:background="#FFEB3B"
         android:cropToPadding="false"
         app:layout_constraintBottom_toBottomOf="@+id/tilSignUpConfirm"
         app:layout_constraintEnd_toStartOf="@+id/tilSignUpConfirm"

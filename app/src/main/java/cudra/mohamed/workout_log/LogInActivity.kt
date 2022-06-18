@@ -29,8 +29,9 @@ class LogInActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
 //            val intent=Intent(this,HomeActivity::class.java)
-            startActivity(intent)
+//            startActivity(intent)
             validateLogIn()
+            finish()
         }
 
         tvSignUp.setOnClickListener {

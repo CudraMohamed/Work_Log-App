@@ -1,13 +1,9 @@
-package cudra.mohamed.workout_log
+package cudra.mohamed.workout_log.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+import cudra.mohamed.workout_log.R
 import cudra.mohamed.workout_log.databinding.ActivityLogInBinding
 
 class LogInActivity : AppCompatActivity() {
@@ -25,7 +21,7 @@ class LogInActivity : AppCompatActivity() {
         }
 
         binding.tvSignUp.setOnClickListener {
-            val intent = Intent(this,SignUpActivity::class.java)
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
     }
@@ -38,7 +34,7 @@ class LogInActivity : AppCompatActivity() {
             binding.tilEmail.error = getString(R.string.email_required)
             error=true
         }
-        if (password.isBlank()){
+        else if (password.isBlank()){
             binding.tilPassword.error = getString(R.string.password_required)
         }
         else if (password.length<8){
@@ -48,7 +44,7 @@ class LogInActivity : AppCompatActivity() {
             binding.tilPassword.error = getString(R.string.login_password_long)
         }
         if (!error){
-            startActivity(Intent(this,HomeActivity::class.java))    //allows the activity to proceed only after validation
+            startActivity(Intent(this, HomeActivity::class.java))    //allows the activity to proceed only after validation
         }
     }
 }

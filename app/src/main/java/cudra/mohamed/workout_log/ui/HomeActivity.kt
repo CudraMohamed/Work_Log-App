@@ -1,11 +1,9 @@
-package cudra.mohamed.workout_log
+package cudra.mohamed.workout_log.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import cudra.mohamed.workout_log.R
 import cudra.mohamed.workout_log.databinding.ActivityHomeBinding
-import cudra.mohamed.workout_log.databinding.ActivityLogInBinding
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding

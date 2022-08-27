@@ -34,4 +34,5 @@
     <string name="profile_fragment">Profile Fragment</string>
     <string name="plan_fragment">Plan Fragment</string>
     <string name="track_fragment">Track Fragment</string>
+    <string name="phone_equired">Phone is required</string>
 </resources>

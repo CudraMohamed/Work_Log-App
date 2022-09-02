@@ -37,9 +37,9 @@ class SignUpActivity : AppCompatActivity() {
     fun validateSignUp(){
         val firstname = binding.etFirstName.text.toString()
         val lastname: String = binding.etLastName.text.toString()
-        val signupEmail = binding.etSignUpEmail.text.toString()
+        val email = binding.etSignUpEmail.text.toString()
         val phoneNumber=binding.etSignUpNumber.text.toString()
-        val signupPassword = binding.etSignUpPassword.text.toString()
+        val password = binding.etSignUpPassword.text.toString()
         val signUpConfirmP = binding.etSignUpConfirm.text.toString()
 
         var error=false
@@ -52,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
             error=true
             binding.tilLastName.error = getString(R.string.last_name)
         }
-        if (signupEmail.isBlank()){
+        if (email.isBlank()){
             error=true
             binding.tilSignUpEmail.error = getString(R.string.email_required)
         }
@@ -60,15 +60,15 @@ class SignUpActivity : AppCompatActivity() {
             error=true
             binding.etSignUpNumber.error=getString(R.string.phone_equired)
         }
-        if (signupPassword.isBlank()){
+        if (password.isBlank()){
             error=true
             binding.tilSignUpPassword.error = getString(R.string.password_required)
         }
-        if (signupPassword.length<8){
+        if (password.length<8){
             error=true
             binding.tilSignUpPassword.error = getString(R.string.password_short)
         }
-        if (signupPassword.length>16){
+        if (password.length>16){
             error=true
             binding.tilSignUpPassword.error = getString(R.string.password_long)
         }
@@ -76,7 +76,7 @@ class SignUpActivity : AppCompatActivity() {
             error=true
             binding.tilSignUpConfirm.error = getString(R.string.ConfirmP_required)
         }
-        if (signUpConfirmP!=signupPassword){
+        if (signUpConfirmP!=password){
             error=true
             binding.tilSignUpConfirm.error = getString(R.string.confirming_passwords)
         }
@@ -89,7 +89,7 @@ class SignUpActivity : AppCompatActivity() {
             binding.tilSignUpConfirm.error = getString(R.string.confirmp_long)
         }
         if(!error){
-            val registerRequest=RegisterRequest(firstname,lastname,signupEmail,signupPassword,signUpConfirmP)
+            val registerRequest=RegisterRequest(firstname,lastname,email,password,signUpConfirmP)
             makeRegisterRequest(registerRequest)
         }
     }
@@ -106,6 +106,10 @@ class SignUpActivity : AppCompatActivity() {
                     val message=response.body()?.message
                     Toast.makeText(baseContext,message,Toast.LENGTH_LONG).show()
                     //intent to login
+//                    binding.tvSignIn.setOnClickListener {
+//                        val intent=Intent(baseContext,LogInActivity::class.java)
+//                        startActivity(intent)
+//                    }
 
 
                 }else{

@@ -107,8 +107,7 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(baseContext,message,Toast.LENGTH_LONG).show()
                     //intent to login
 //                    binding.tvSignIn.setOnClickListener {
-//                        val intent=Intent(baseContext,LogInActivity::class.java)
-//                        startActivity(intent)
+                        startActivity(Intent(baseContext,LogInActivity::class.java))
 //                    }
 
 

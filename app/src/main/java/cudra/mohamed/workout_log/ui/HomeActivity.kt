@@ -1,5 +1,7 @@
 package cudra.mohamed.workout_log.ui
 
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import cudra.mohamed.workout_log.R
@@ -7,11 +9,18 @@ import cudra.mohamed.workout_log.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
+    lateinit var sharedPrefs:SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.tvLogout.setOnClickListener {
+            startActivity(Intent(this,LogInActivity::class.java))
+            finish()
+            logOutRequest()
+        }
 
         castView()
         setupBottomNav()
@@ -42,5 +51,10 @@ class HomeActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+    fun logOutRequest(){
+        sharedPrefs.edit().clear().commit()
+//        startActivity(Intent(this,LogInActivity::class.java))
+//        finish()
     }
 }

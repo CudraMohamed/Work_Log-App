@@ -1,4 +1,4 @@
-package cudra.mohamed.workout_log.retrofit
+package cudra.mohamed.workout_log.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

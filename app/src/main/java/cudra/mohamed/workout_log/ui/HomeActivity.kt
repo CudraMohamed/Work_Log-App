@@ -4,12 +4,18 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import cudra.mohamed.workout_log.R
 import cudra.mohamed.workout_log.databinding.ActivityHomeBinding
+import cudra.mohamed.workout_log.util.Constants
+import cudra.mohamed.workout_log.viewmodel.ExerciseViewModel
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
     lateinit var sharedPrefs:SharedPreferences
+    val exerciseViewModel:ExerciseViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +30,19 @@ class HomeActivity : AppCompatActivity() {
 
         castView()
         setupBottomNav()
+        sharedPrefs=getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
+        val token = sharedPrefs.getString(Constants.accessToken,Constants.EMPTY_STRING)
+        exerciseViewModel.fetchExerciseCategories(token!!)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { exerciseCategories->
+            Toast.makeText(this,"fetched ${exerciseCategories.size} categories",Toast.LENGTH_LONG).show()
+        })
+        exerciseViewModel.errorLiveData.observe(this, Observer { errorMsg->
+            Toast.makeText(this,errorMsg,Toast.LENGTH_LONG).show()
+        })
     }
 
     fun castView() {

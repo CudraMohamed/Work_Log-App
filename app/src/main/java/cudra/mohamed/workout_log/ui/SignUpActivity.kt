@@ -39,6 +39,16 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        userViewModel.registerResponseLiveData.observe(this, Observer { registerResponse-> //observe live data
+            Toast.makeText(baseContext,registerResponse.message,Toast.LENGTH_LONG).show()
+            startActivity(Intent(baseContext,LogInActivity::class.java))
+        })
+        userViewModel.registerErrorLiveData.observe(this, Observer { regError->
+            Toast.makeText(baseContext,regError,Toast.LENGTH_LONG).show()
+        })
+    }
 
     fun validateSignUp(){
         val firstname = binding.etFirstName.text.toString()
@@ -96,18 +106,8 @@ class SignUpActivity : AppCompatActivity() {
         }
         if(!error){
             val registerRequest=RegisterRequest(firstname,lastname,email,password,signUpConfirmP)
-            userViewModel.registerUser(registerRequest)
+            userViewModel.registerUser(registerRequest) //invoke user viewmodel
 //            makeRegisterRequest(registerRequest)
         }
-    }
-    override fun onResume() {
-        super.onResume()
-        userViewModel.registerRequestLiveData.observe(this, Observer { registerResponse->
-            Toast.makeText(baseContext,registerResponse.message,Toast.LENGTH_LONG).show()
-            startActivity(Intent(baseContext,LogInActivity::class.java))
-        })
-        userViewModel.registerErrorLiveData.observe(this, Observer { regError->
-            Toast.makeText(baseContext,regError,Toast.LENGTH_LONG).show()
-        })
     }
 }

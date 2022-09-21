@@ -14,6 +14,7 @@ import cudra.mohamed.workout_log.api.ApiInterface
 import cudra.mohamed.workout_log.models.LoginRequest
 import cudra.mohamed.workout_log.models.LoginResponse
 import cudra.mohamed.workout_log.api.ApiClient
+import cudra.mohamed.workout_log.util.Constants
 import cudra.mohamed.workout_log.viewmodel.UserViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,7 +30,7 @@ class LogInActivity : AppCompatActivity() {
         binding= ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedPref=getSharedPreferences("WORKOUTLOG_PREFS", MODE_PRIVATE)
+        sharedPref=getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener {
             validateLogIn()
@@ -68,10 +69,10 @@ class LogInActivity : AppCompatActivity() {
             binding.tilPassword.error = getString(R.string.password_required)
             error=true
         }
-        else if (password.length<8){
-            binding.tilPassword.error = getString(R.string.login_password_short)
-            error=true
-        }
+//        else if (password.length<8){
+//            binding.tilPassword.error = getString(R.string.login_password_short)
+//            error=true
+//        }
         else if (password.length>16){
             binding.tilPassword.error = getString(R.string.login_password_long)
             error=true
@@ -111,9 +112,10 @@ class LogInActivity : AppCompatActivity() {
 //    }
     fun saveLoginDetails(loginResponse: LoginResponse){
         val editor=sharedPref.edit()
-        editor.putString("ACCESS_TOKEN",loginResponse.accessToken)
-        editor.putString("USER_ID",loginResponse.userId)
-        editor.putString("PROFILE_ID",loginResponse.profileId)
+    val token="Bearer ${loginResponse.accessToken}" //
+        editor.putString(Constants.accessToken,token)
+        editor.putString(Constants.userId,loginResponse.userId)
+        editor.putString(Constants.profileId,loginResponse.profileId)
         editor.apply()
     }
 }

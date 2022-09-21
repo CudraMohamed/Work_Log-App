@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Workout_Log"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ui.LogoutActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ui.LogoutActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".ui.HomeActivity"
             android:exported="false" /> <!-- <activity -->

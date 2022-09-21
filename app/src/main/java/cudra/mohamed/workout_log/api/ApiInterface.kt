@@ -1,12 +1,11 @@
 package cudra.mohamed.workout_log.api
 
-import cudra.mohamed.workout_log.models.LoginRequest
-import cudra.mohamed.workout_log.models.LoginResponse
-import cudra.mohamed.workout_log.models.RegisterRequest
-import cudra.mohamed.workout_log.models.RegisterResponse
+import cudra.mohamed.workout_log.models.*
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiInterface {
@@ -15,4 +14,7 @@ interface ApiInterface {
 
     @POST("/login")
     suspend fun login(@Body loginRequest: LoginRequest):Response<LoginResponse>
+
+    @GET("/exercise-categories")   //header- key,value pair of additional info sending on the request - they are also keys and values
+    suspend fun fetchExerciseCategories(@Header("Authorization")accessToken:String): Response<List<ExerciseCategory>>   //key-authorization-value-bearer and space
 }

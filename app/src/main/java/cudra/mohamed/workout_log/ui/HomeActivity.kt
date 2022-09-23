@@ -22,11 +22,11 @@ class HomeActivity : AppCompatActivity() {
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tvLogout.setOnClickListener {
-            startActivity(Intent(this,LogInActivity::class.java))
-            finish()
-            logOutRequest()
-        }
+//        binding.tvLogout.setOnClickListener {
+//            startActivity(Intent(this,LogInActivity::class.java))
+//            finish()
+//            logOutRequest()
+//        }
 
         castView()
         setupBottomNav()

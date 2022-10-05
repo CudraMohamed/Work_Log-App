@@ -66,6 +66,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction().replace(R.id.fcvHome, ProfileFragment()).commit()
                     true
+                    
                 }
                 else -> false
             }
@@ -73,7 +74,7 @@ class HomeActivity : AppCompatActivity() {
     }
     fun logOutRequest(){
         sharedPrefs.edit().clear().commit()
-//        startActivity(Intent(this,LogInActivity::class.java))
-//        finish()
+        startActivity(Intent(this,LogInActivity::class.java))
+        finish()
     }
 }

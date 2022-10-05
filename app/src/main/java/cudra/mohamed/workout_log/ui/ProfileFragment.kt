@@ -15,7 +15,7 @@ import cudra.mohamed.workout_log.util.Constants
 
 class ProfileFragment : Fragment() {
 
-//    lateinit var binding: FragmentProfileBinding
+    lateinit var binding: FragmentProfileBinding
     lateinit var sharedPref: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

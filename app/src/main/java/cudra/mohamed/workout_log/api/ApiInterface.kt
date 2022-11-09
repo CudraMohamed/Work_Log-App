@@ -15,6 +15,12 @@ interface ApiInterface {
     @POST("/login")
     suspend fun login(@Body loginRequest: LoginRequest):Response<LoginResponse>
 
+    @POST("/profile")
+    suspend fun userProfile(@Body profileRequest: ProfileRequest):Response<ProfileResponse>
+
     @GET("/exercise-categories")   //header- key,value pair of additional info sending on the request - they are also keys and values
     suspend fun fetchExerciseCategories(@Header("Authorization")accessToken:String): Response<List<ExerciseCategory>>   //key-authorization-value-bearer and space
+
+    @GET("/exercises")
+    suspend fun fetchExercises(@Header("Authorization")accessToken: String):Response<List<Exercise>>
 }

@@ -10,7 +10,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPref=getSharedPreferences("WORKOUTLOG_PREFS", MODE_PRIVATE)
-        val accessToken=sharedPref.getString("ACCESS_TOKEN","")
+        val accessToken=sharedPref.getString("ACCESS_TOKEN","").toString()
         if (accessToken!!.isNotBlank()){
             startActivity(Intent(this,HomeActivity::class.java))
         }else{

@@ -17,6 +17,8 @@ class HomeActivity : AppCompatActivity() {
     lateinit var sharedPrefs:SharedPreferences
     val exerciseViewModel:ExerciseViewModel by viewModels()
 
+//    lateinit var token:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityHomeBinding.inflate(layoutInflater)
@@ -28,26 +30,46 @@ class HomeActivity : AppCompatActivity() {
 //            logOutRequest()
 //        }
 
-        castView()
+//        castView()
         setupBottomNav()
-        sharedPrefs=getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
-        val token = sharedPrefs.getString(Constants.accessToken,Constants.EMPTY_STRING)
-        exerciseViewModel.fetchExerciseCategories(token!!)
+//        sharedPrefs=getSharedPreferences(Constants.prefsFile, MODE_PRIVATE) //changes
+
+//        val token = sharedPrefs.getString(Constants.accessToken,Constants.EMPTY_STRING) //changes
+
+//        val token = sharedPrefs.getString(Constants.accessToken,Constants.EMPTY_STRING)
+//        exerciseViewModel.fetchExerciseCategories(token!!)
+//
+//        exerciseViewModel.fetchExerciseCategories(token!!)
+//        exerciseViewModel.fetchApiExercises(token)
+        exerciseViewModel.getDbExerciseCategories()
+        exerciseViewModel.getDbExercises()
     }
 
     override fun onResume() {
         super.onResume()
         exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { exerciseCategories->
+            if (exerciseCategories.isEmpty()){
+                exerciseViewModel.fetchExerciseCategories(getAccessToken()) //fetching data
+            }
             Toast.makeText(this,"fetched ${exerciseCategories.size} categories",Toast.LENGTH_LONG).show()
         })
         exerciseViewModel.errorLiveData.observe(this, Observer { errorMsg->
             Toast.makeText(this,errorMsg,Toast.LENGTH_LONG).show()
         })
+        exerciseViewModel.exerciseLiveData.observe(this, Observer { exercise ->
+            if (exercise.isEmpty()) {
+                exerciseViewModel.fetchApiExercises(getAccessToken())
+            }
+        })
     }
 
-    fun castView() {
-        binding.fcvHome
-        binding.bnvHome
+//    fun castView() {
+//        binding.fcvHome
+//        binding.bnvHome
+//    }
+    fun getAccessToken(): String {
+        sharedPrefs = getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
+        return sharedPrefs.getString(Constants.accessToken, "")!!
     }
 
     fun setupBottomNav() {

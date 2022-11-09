@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import cudra.mohamed.workout_log.R
+import cudra.mohamed.workout_log.databinding.FragmentPlanBinding
 import cudra.mohamed.workout_log.databinding.FragmentProfileBinding
 import cudra.mohamed.workout_log.util.Constants
 
@@ -28,7 +29,9 @@ class ProfileFragment : Fragment() {
         ivLogout?.setOnClickListener{
             logout()
         }
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        binding= FragmentProfileBinding.inflate(layoutInflater,container,false)
+        return binding.root
+//        return inflater.inflate(R.layout.fragment_profile, container, false)
 
     } //add profile ui
     fun logout(){

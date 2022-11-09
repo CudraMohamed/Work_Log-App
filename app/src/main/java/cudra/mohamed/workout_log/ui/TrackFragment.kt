@@ -23,7 +23,7 @@ import cudra.mohamed.workout_log.viewmodel.WorkoutPlanViewModel
 import java.time.LocalDate
 import java.util.*
 
-class TrackFragment : Fragment() {
+class TrackFragment : Fragment(),LogWorkout {
     lateinit var binding: FragmentTrackBinding
     val workoutPlanViewModel:WorkoutPlanViewModel by viewModels()
     lateinit var prefs:SharedPreferences
@@ -57,7 +57,7 @@ class TrackFragment : Fragment() {
                         val todayExerciseIds=workoutPlanItem.exerciseId
                         exerciseViewModel.getExercisesByExerciseIds(todayExerciseIds).observe(this,
                             Observer { exercises->
-                                val adapter=TrackAdapter(exercises)
+                                val adapter=TrackAdapter(exercises,this)
                                 binding.rvTrack.layoutManager=LinearLayoutManager(requireContext())
                                 binding.rvTrack.adapter=adapter
                             })
@@ -68,20 +68,21 @@ class TrackFragment : Fragment() {
                 })
         })
 
-        
 
-        override fun onClickDone(set:Int,weight:Int,reps:Int,exerciseId:String){
-            val workoutLogRecord=WorkoutLogRecord(
+    }
+
+    override fun onClickDone(set: Int, weight: Int, reps: Int, exerciseId: String) {
+        val workoutLogRecord=WorkoutLogRecord(
             workoutLogId= UUID.randomUUID().toString(),
             date="",
             exerciseId=exerciseId,
             set=set,
-            weight=weight,
+            weigtht = weight,
             reps=reps,
             workoutPlanItemId=workoutPlanItemId,
             userId=userId)
 
-            workoutPlanViewModel.saveWorkoutLogRecord(workoutLogRecord)
-        }
+        workoutLogRecordViewModel.saveWorkoutLogRecord(workoutLogRecord)
     }
+
 }

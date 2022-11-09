@@ -15,7 +15,7 @@ interface ExerciseCategoryDao {
     fun insertExerciseCategory(category: ExerciseCategory)
 
     //Querying data
-    @Query("SELECt * FROM ExerciseCategories")
+    @Query("SELECT * FROM exercisecategories")
     fun getAllExercises(): LiveData<List<ExerciseCategory>>
 
 //    @Query("SELECT * FROM exercisecategories WHERE categoryId= :categoryId")
